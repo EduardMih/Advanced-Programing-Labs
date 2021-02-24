@@ -1,13 +1,12 @@
-//Hamza Eduard-Mihail, 2A4
+
 
 package Compulsory;
 
-
-public class Languages {
+public class languages {
     private String[] languages = {"C", "C++", "C#", "Python", "GO", "Rust",
-            "JavaScript", "PHP", "Swift", "Java"};
+                                  "JavaScript", "PHP", "Swift", "Java"};
 
-    public String getLang() //compute index and return the corresponding string
+    public String getLang()
     {
         int index;
 
@@ -17,7 +16,7 @@ public class Languages {
 
     }
 
-    private int doMath() //generate random n and perform calculations
+    private int doMath()
     {
         int n = (int) (Math.random() * 1000000);
 
@@ -31,8 +30,8 @@ public class Languages {
 
     }
 
-    private int computeIndex() //uses doMath method to compute value of n and after that
-    {                          //compute the sum of its digits until the result has only one digit
+    private int computeIndex()
+    {
         int n, s=10;
 
         n = doMath();
@@ -52,4 +51,5 @@ public class Languages {
         return s;
 
     }
+
 }

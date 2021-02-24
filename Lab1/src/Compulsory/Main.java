@@ -1,12 +1,13 @@
-//Hamza Eduard-Mihail, 2A4
+
 
 package Compulsory;
 
-public class Main {
+public class main {
+
     public static void main(String[] args)
     {
         int n;
-        Languages lang= new Languages();
+        languages lang = new languages();
         greet();
         System.out.println("Willy-nilly, this semester I will learn " + lang.getLang());
     }
@@ -15,5 +16,6 @@ public class Main {
     {
         System.out.println("Hello World!");
     }
+
 
 }
