@@ -1,8 +1,6 @@
 //Hamza Eduard-Mihail, 2A4
 package transportation;
 
-import com.sun.javaws.exceptions.InvalidArgumentException;
-
 import java.util.Objects;
 
 public class Destination {

@@ -15,8 +15,16 @@ public class Problem {
     }
 
     public Problem(Source[] sources, Destination[] destinations, int[] supply, int[] demand, int[][] cost) {
+        if(!hasUniqueObjects(sources))
+            throw new IllegalArgumentException("!!!Not unique or NULL sources");
+
         this.sources = sources;
+
+        if(!hasUniqueObjects(destinations))
+            throw new IllegalArgumentException("!!!Not unique or NULL destinations");
+
         this.destinations = destinations;
+
         this.supply = supply;
         this.demand = demand;
         this.cost = cost;
@@ -29,14 +37,22 @@ public class Problem {
     }
 
     public void setSources(Source[] sources) {
+        if(!hasUniqueObjects(sources))
+            throw new IllegalArgumentException("!!!Not unique or NULL sources");
+
         this.sources = sources;
     }
 
     public int[] getSupply() {
+        int[] copy = new int[this.supply.length];
 
-        return supply;
+        System.arraycopy(this.supply, 0, copy, 0,  copy.length);
+
+        return copy;
 
     }
+
+
 
     public void setSupply(int[] supply) {
         this.supply = supply;
@@ -49,12 +65,18 @@ public class Problem {
     }
 
     public void setDestinations(Destination[] destinations) {
+        if(!hasUniqueObjects(destinations))
+            throw new IllegalArgumentException("!!!Not unique or NULL destinations");
+
         this.destinations = destinations;
     }
 
     public int[] getDemand() {
+        int[] copy = new int[this.demand.length];
 
-        return demand;
+        System.arraycopy(this.demand, 0, copy, 0, copy.length);
+
+        return copy;
 
     }
 
@@ -63,8 +85,12 @@ public class Problem {
     }
 
     public int[][] getCost() {
+        int[] [] copy = new int[this.cost.length][this.cost.length];
 
-        return cost;
+        for(int i = 0; i < this.cost.length; i++)
+            System.arraycopy(this.cost[i], 0, copy[i], 0, this.cost[i].length);
+
+        return copy;
 
     }
 
@@ -83,5 +109,16 @@ public class Problem {
                 ", cost=" + Arrays.deepToString(cost) +
                 '}';
 
+    }
+
+    public boolean hasUniqueObjects(Object[] obj)
+    {
+        for (int i = 0; i < obj.length; i++)
+            for (int j = i + 1; j < obj.length; j++)
+                 if((obj[i] == null) || (obj[i].equals(obj[j])))
+
+                     return false;
+
+                 return true;
     }
 }

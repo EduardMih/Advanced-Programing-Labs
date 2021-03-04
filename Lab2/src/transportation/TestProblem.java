@@ -7,16 +7,18 @@ public class TestProblem {
         Destination[] destinations = new Destination[3];
         Problem pr = new Problem();
         Problem pr2;
+        Algorithm greedy, vogel;
+        Solution sol, sol1, sol2;
         int[] supply = {10, 35, 25};
         int[] demand = {20, 25, 25};
         int[][] cost = {{2, 3, 1}, {5, 4, 8}, {5, 6, 8}};
 
-        sources[0] = new Source("S1", SourceType.FACTORY);
-        sources[1] = new Source("S2", SourceType.WAREHOUSE);
-        sources[2] = new Source("S3", SourceType.WAREHOUSE);
+        sources[0] = new Factory("S1");
+        sources[1] = new Warehouse("S1");
+        sources[2] = new Warehouse("S3");
 
         for (int i = 0; i < 3; i++)
-            destinations[i] = new Destination("S" + (i + 1));
+            destinations[i] = new Destination("D" + (i + 1));
 
         for (int i = 0; i < 3; i++) {
             System.out.println(sources[i].toString());
@@ -49,5 +51,20 @@ public class TestProblem {
             System.out.println("Exception at set destination name" + e.getMessage());
         }
 
+        System.out.println(pr);
+        greedy = new GreedyAlgorithm(pr);
+        sol = greedy.solve();
+        System.out.println(sol);
+
+        sol1 = greedy.solve();
+        System.out.println(sol1);
+
+        vogel = new VogelAlgorithm(pr);
+        sol2 = vogel.solve();
+        System.out.println("Vogel -> " + sol2);
+
+
+
     }
+
 }
