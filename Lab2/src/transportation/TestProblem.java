@@ -6,9 +6,6 @@ public class TestProblem {
         Source[] sources = new Source[3];
         Destination[] destinations = new Destination[3];
         Problem pr = new Problem();
-        Problem pr2;
-        Algorithm greedy, vogel;
-        Solution sol, sol1, sol2;
         int[] supply = {10, 35, 25};
         int[] demand = {20, 25, 25};
         int[][] cost = {{2, 3, 1}, {5, 4, 8}, {5, 6, 8}};
@@ -35,7 +32,7 @@ public class TestProblem {
         System.out.println(pr.toString());
 
         //with constructor
-        pr2 = new Problem(sources, destinations, supply, demand, cost);
+        Problem pr2 = new Problem(sources, destinations, supply, demand, cost);
 
         System.out.println(pr);
 
@@ -52,15 +49,15 @@ public class TestProblem {
         }
 
         System.out.println(pr);
-        greedy = new GreedyAlgorithm(pr);
-        sol = greedy.solve();
+        Algorithm greedy = new GreedyAlgorithm(pr);
+        Solution sol = greedy.solve();
         System.out.println(sol);
 
-        sol1 = greedy.solve();
+        Solution sol1 = greedy.solve();
         System.out.println(sol1);
 
-        vogel = new VogelAlgorithm(pr);
-        sol2 = vogel.solve();
+        Algorithm vogel = new VogelAlgorithm(pr);
+        Solution sol2 = vogel.solve();
         System.out.println("Vogel -> " + sol2);
 
 
