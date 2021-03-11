@@ -1,3 +1,4 @@
+//Hamza Eduard-Mihail, 2A4
 package Travel;
 
 import Places.City;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class TravelPlan {
     private City currentCity;
-    private List<Preference> preferences = new ArrayList<>();
+    private List<Preference> preferences = new ArrayList<>(); //list of preferences in form of predecessor-successor
     private Location startPoint, endPoint;
 
     public TravelPlan(City currentCity) {
@@ -56,6 +57,7 @@ public class TravelPlan {
 
     public void addExtremePoints(Location start, Location end)
     {
+        //adding start and end points
         Preference p1;
         this.startPoint = start;
         this.endPoint = end;

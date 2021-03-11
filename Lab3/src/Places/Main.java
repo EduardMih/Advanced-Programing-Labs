@@ -1,3 +1,4 @@
+//Hamza Eduard-Mihail, 2A4
 package Places;
 
 import Travel.FindRoute;
@@ -54,7 +55,7 @@ public class Main {
         tr1 = new TravelPlan(myCity);
         tr1.addPreference(v2, v3);
         tr1.addPreference(v4, v5);
-        tr1.addExtremePoints(v1, v6);
+        tr1.addExtremePoints(v1, v6); //start and end points
 
         routeFinder = new FindRoute(tr1);
         routeFinder.solve();

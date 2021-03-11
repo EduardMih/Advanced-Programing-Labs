@@ -1,3 +1,4 @@
+//Hamza Eduard-Mihail, 2A4
 package Travel;
 
 import Places.Location;
@@ -19,13 +20,14 @@ public class FindRoute {
 
     public void solve() {
         minCost = Integer.MAX_VALUE;
-        createDagAdj();
+        createDagAdj(); //create preferences DAG
         generateAllTopologicalSort();
         System.out.println(minCost);
 
     }
 
     private void createDagAdj() {
+        //create DAG for preferences
         int nrOfVertices, indexOfPred, indexOfSucc;
 
         nrOfVertices = plan.getCurrentCity().getNodes().size();
@@ -54,6 +56,7 @@ public class FindRoute {
 
     private void topologicalSort(boolean[] visited, List<Integer> result)
     {
+        //create a list(results) with index of every node in topological order
         int nrOfVertices = plan.getCurrentCity().getNodes().size();
         boolean sortFound = false;
 
@@ -91,6 +94,7 @@ public class FindRoute {
 
     private void dijkstraForDags(List<Integer> results)
     {
+        //compute shortest distance using only neighbours that are ahead in topological sort order
         int nrOfVertices = results.size();
         int indexOfNeighbour;
         int currentDist;

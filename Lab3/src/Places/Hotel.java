@@ -1,3 +1,4 @@
+//Hamza Eduard-Mihail, 2A4
 package Places;
 
 public class Hotel extends Location implements Classifiable {
