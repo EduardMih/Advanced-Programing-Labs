@@ -1,5 +1,6 @@
+package Places;
+
 import java.time.LocalTime;
-import java.util.Map;
 
 public class Church extends Location implements Visitable{
     private LocalTime openingTime, closingTime;
@@ -17,12 +18,20 @@ public class Church extends Location implements Visitable{
     @Override
     public LocalTime getOpeningTime() {
 
+        if(openingTime == null)
+
+            return Visitable.super.getOpeningTime();
+
         return openingTime;
 
     }
 
     @Override
     public LocalTime getClosingTime() {
+
+        if(closingTime == null)
+
+            return Visitable.super.getClosingTime();
 
         return closingTime;
 
@@ -38,11 +47,13 @@ public class Church extends Location implements Visitable{
 
     @Override
     public String toString() {
-        return "Church{" +
+        return "Places.Church{" +
                 "openingTime=" + openingTime +
                 ", closingTime=" + closingTime +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
+
+
 }

@@ -1,5 +1,6 @@
+package Places;
+
 import java.time.LocalTime;
-import java.util.Map;
 
 public class Museum extends Location implements Visitable, Playable {
     private LocalTime openingTime, closingTime;
@@ -26,12 +27,20 @@ public class Museum extends Location implements Visitable, Playable {
     @Override
     public LocalTime getOpeningTime() {
 
+        if(openingTime == null)
+
+            return Visitable.super.getOpeningTime();
+
         return openingTime;
 
     }
 
     @Override
     public LocalTime getClosingTime() {
+
+        if(openingTime == null)
+
+            return Visitable.super.getClosingTime();
 
         return closingTime;
 
@@ -51,7 +60,7 @@ public class Museum extends Location implements Visitable, Playable {
 
     @Override
     public String toString() {
-        return "Museum{" +
+        return "Places.Museum{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", openingTime=" + openingTime +

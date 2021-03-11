@@ -1,3 +1,5 @@
+package Places;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,7 +45,7 @@ public abstract class Location implements Comparable<Location> {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Places.Location{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", cost=" + cost +
@@ -56,7 +58,7 @@ public abstract class Location implements Comparable<Location> {
 
             return this.name.compareTo(o.name);
 
-        throw new NullPointerException("!!!NULL Location name");
+        throw new NullPointerException("!!!NULL Places.Location name");
 
     }
 }

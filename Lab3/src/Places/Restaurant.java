@@ -1,14 +1,13 @@
-import java.util.Map;
+package Places;
 
-public class Hotel extends Location implements Classifiable  {
+public class Restaurant extends Location implements Classifiable {
     private int rank;
 
-
-    public Hotel(String name, String description) {
+    public Restaurant(String name, String description) {
         super(name, description);
     }
 
-    public Hotel(String name, String description, int rank) {
+    public Restaurant(String name, String description, int rank) {
         super(name, description);
         this.rank = rank;
     }
@@ -20,16 +19,17 @@ public class Hotel extends Location implements Classifiable  {
     @Override
     public int getRank() {
 
-        return this.rank;
+        return rank;
 
     }
 
     @Override
     public String toString() {
-        return "Hotel{" +
-                "rank=" + rank +
-                ", name='" + name + '\'' +
+        return "Places.Restaurant{" +
+                "name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", rank=" + rank +
                 '}';
     }
+
 }
