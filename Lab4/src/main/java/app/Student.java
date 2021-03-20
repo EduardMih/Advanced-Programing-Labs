@@ -1,10 +1,11 @@
 //Hamza Eduard-Mihail, 2A4
-package Entities;
+package app;
 
 import java.util.List;
 
 public class Student {
     private String name;
+    private int score;
 
     public Student(String name) {
         this.name = name;
@@ -16,6 +17,16 @@ public class Student {
 
     }
 
+    public int getScore() {
+
+        return score;
+
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
     @Override
     public String toString() {
 
@@ -25,3 +36,4 @@ public class Student {
 
     }
 }
+

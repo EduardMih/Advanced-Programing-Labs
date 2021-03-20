@@ -1,11 +1,9 @@
 //Hamza Eduard-Mihail, 2A4
-package Entities;
-
-import java.util.List;
-import java.util.Objects;
+package app;
 
 public class School implements Comparable<School>{
     private String name;
+    private int capacity;
 
     public School(String name) {
         this.name = name;
@@ -15,6 +13,16 @@ public class School implements Comparable<School>{
 
         return name;
 
+    }
+
+    public int getCapacity() {
+
+        return capacity;
+
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     @Override
@@ -36,4 +44,3 @@ public class School implements Comparable<School>{
 
     }
 }
-
