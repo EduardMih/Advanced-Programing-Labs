@@ -9,6 +9,10 @@ public class Movie extends Item{
         super(id, name);
     }
 
+    public Movie(String id, String name, String location) {
+        super(id, name, location);
+    }
+
     @Override
     public String toString() {
 

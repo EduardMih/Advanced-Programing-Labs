@@ -33,6 +33,12 @@ public class Catalog implements Serializable {
 
     }
 
+    public List<Item> getItems() {
+
+        return items;
+
+    }
+
     public void setPath(String path) {
         this.path = path;
     }

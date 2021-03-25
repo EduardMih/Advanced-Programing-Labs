@@ -28,7 +28,7 @@ public class CatalogUtil {
         }
         catch (IOException | ClassNotFoundException e1)
         {
-            throw new InvalidCatalogException(e1);
+            throw new InvalidCatalogException();
         }
 
 
@@ -45,7 +45,7 @@ public class CatalogUtil {
         }
         catch(IOException | IllegalArgumentException e1)
         {
-            throw new ViewItemException(e1);
+            throw new ViewItemException();
         }
     }
 }

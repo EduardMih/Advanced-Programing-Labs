@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CatalogReport</title>
+</head>
+<body>
+<h1>${title}</h1>
+<p><b>Location: ${path}</b></p>
+
+<h3>Items</h3>
+<ul>
+    <#list items as item>
+    <li>${item_index + 1}. ${item.name}; ${item.location}</li>
+    </#list>
+</ul>
+</body>
+</html>

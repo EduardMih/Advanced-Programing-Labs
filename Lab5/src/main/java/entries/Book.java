@@ -10,6 +10,11 @@ public class Book extends Item{
         super(id, name);
     }
 
+    public Book(String id, String name, String path)
+    {
+        super(id, name, path);
+    }
+
     @Override
     public String toString() {
 

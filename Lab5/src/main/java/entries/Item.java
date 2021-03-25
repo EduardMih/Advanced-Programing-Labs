@@ -13,6 +13,12 @@ public abstract class Item implements Serializable {
         this.name = name;
     }
 
+    public Item(String id, String name, String location) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+    }
+
     public String getId() {
 
         return id;
