@@ -37,3 +37,5 @@ Exercitiul Optional si Bonus - 25.03
 Lab6
 
 Exercitiul Compulsory - 25.03
+
+Exercitiul Optional - 1.04
