@@ -39,3 +39,8 @@ Lab6
 Exercitiul Compulsory - 25.03
 
 Exercitiul Optional - 1.04
+
+-------------------------------------------
+Lab7
+
+Exercitiul Compulsory - 1.04
