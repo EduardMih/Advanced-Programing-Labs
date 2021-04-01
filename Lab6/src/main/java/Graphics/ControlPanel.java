@@ -67,7 +67,7 @@ public class ControlPanel extends JPanel {
 
     private void reset(ActionEvent e)
     {
-        frame.reset();
+        frame.controller.reset();
     }
 
     private void exit(ActionEvent e)
