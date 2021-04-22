@@ -22,7 +22,9 @@ public class Request implements Runnable{
 
         try
         {
+            //Keep next line for connection pool, comment following line for experimenting with singleton
             Connection conn = ConnectionPool.getConnection();
+            //Keep next line for singleton, comment for experimenting with connection pooling
             //Connection conn = DataBaseConection.getConnection();
             String sql = "SELECT * FROM movies WHERE id = ?";
             PreparedStatement psmt = conn.prepareStatement(sql);
@@ -41,6 +43,7 @@ public class Request implements Runnable{
             System.out.println(id + " -> " + movie);
             //System.out.println(conn);
 
+            //Keep this line only in the case of connection pooling
             conn.close();
 
         }
