@@ -4,10 +4,7 @@ package dao;
 import connection.DataBaseConection;
 import model.Genre;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class GenreDaoImplementation implements GenreDao {
     private static final Connection conn = DataBaseConection.getConnection();
@@ -15,10 +12,18 @@ public class GenreDaoImplementation implements GenreDao {
     @Override
     public void add(Genre genre) throws SQLException {
         String sql = "INSERT INTO genres (name) VALUES( ? );";
-        PreparedStatement psmt = conn.prepareStatement(sql);
+        PreparedStatement psmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ResultSet result;
 
         psmt.setString(1, genre.getName());
         psmt.executeUpdate();
+
+        result = psmt.getGeneratedKeys();
+
+        while(result.next())
+        {
+            genre.setId(result.getInt(1));
+        }
     }
 
     @Override

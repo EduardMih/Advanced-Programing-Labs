@@ -7,21 +7,30 @@ import model.Movie;
 import java.sql.*;
 
 public class MovieDaoImplementation implements MovieDao {
-
     private static final Connection conn = DataBaseConection.getConnection();
 
     @Override
     public void add(Movie movie) throws SQLException {
+        Integer id = 0;
         String sql = "INSERT INTO movies (title, release_date, duration, score) VALUES(?, ?, ?, ?);";
-        PreparedStatement pstmt = conn.prepareStatement(sql);
+        PreparedStatement pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ResultSet result;
+
 
         pstmt.setString(1, movie.getTitle());
         pstmt.setDate(2, new Date(movie.getReleaseDate().getTime()));
         pstmt.setInt(3, movie.getDuration());
-        pstmt.setShort(4, movie.getScore());
+        pstmt.setFloat(4, movie.getScore());
 
         pstmt.executeUpdate();
+        result = pstmt.getGeneratedKeys();
 
+        while(result.next())
+        {
+            id = result.getInt(1);
+        }
+
+        movie.setId(id);
     }
 
     @Override
@@ -30,13 +39,19 @@ public class MovieDaoImplementation implements MovieDao {
         PreparedStatement psmt = conn.prepareStatement(sql);
         Movie movie = new Movie();
         ResultSet result;
+        boolean exists = false;
 
         psmt.setInt(1, id);
         result = psmt.executeQuery();
 
         while (result.next()) {
+            exists = true;
             putData(movie, result);
         }
+
+        if(!exists)
+
+            return null;
 
         return movie;
 
@@ -48,13 +63,19 @@ public class MovieDaoImplementation implements MovieDao {
         PreparedStatement psmt = conn.prepareStatement(sql);
         Movie movie = new Movie();
         ResultSet result;
+        boolean exists = false;
 
         psmt.setString(1, name);
         result = psmt.executeQuery();
 
         while (result.next()) {
+            exists = true;
             putData(movie, result);
         }
+
+        if(!exists)
+
+            return null;
 
         return movie;
 
@@ -65,6 +86,6 @@ public class MovieDaoImplementation implements MovieDao {
         movie.setTitle(result.getString("title"));
         movie.setReleaseDate(result.getDate("release_date"));
         movie.setDuration(result.getInt("duration"));
-        movie.setScore(result.getShort("score"));
+        movie.setScore(result.getFloat("score"));
     }
 }
