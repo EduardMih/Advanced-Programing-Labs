@@ -56,4 +56,3 @@ Exercitiile Optional si Bonus - 22.04
 Lab9
 
 Exercitiul Compulsory - 22.04
-Exercitiul Compulsory - 22.04
