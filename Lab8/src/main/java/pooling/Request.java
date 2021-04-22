@@ -43,7 +43,7 @@ public class Request implements Runnable{
             System.out.println(id + " -> " + movie);
             //System.out.println(conn);
 
-            //Keep this line only in the case of singleton
+            //Keep this line only in the case of connection pooling
             conn.close();
 
         }
