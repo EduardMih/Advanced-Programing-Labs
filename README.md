@@ -49,3 +49,5 @@ Exercitiul Compulsory - 1.04
 Lab8
 
 Exercitiul Compulsory - 15.04
+
+Exercitiile Optional si Bonus - 22.04
