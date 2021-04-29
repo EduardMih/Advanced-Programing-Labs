@@ -9,16 +9,19 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "charts", schema = "public", catalog = "cinema")
+@NamedQueries({@NamedQuery(name = "ChartEntity.findByName",
+        query = "SELECT c FROM ChartEntity c WHERE c.name = :name"),
+@NamedQuery(name = "ChartEntity.findById", query = "SELECT c FROM ChartEntity c WHERE c.id = :id")})
 public class ChartEntity {
     private Integer id;
     private String name;
     private LocalDate creationDate;
-    private List<ChartMovieEntity> movies = new ArrayList<>();
+    private List<MovieEntity> movies = new ArrayList<>();
 
     public ChartEntity() {
     }
 
-    public ChartEntity(String name, LocalDate creationDate, List<ChartMovieEntity> movies) {
+    public ChartEntity(String name, LocalDate creationDate, List<MovieEntity> movies) {
         this.name = name;
         this.creationDate = creationDate;
         this.movies = movies;
@@ -64,21 +67,24 @@ public class ChartEntity {
         this.creationDate = creationDate;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "movie")
-    public List<ChartMovieEntity> getMovies()
+    @ManyToMany
+    @JoinTable(name = "chart_movies",
+    joinColumns = @JoinColumn(name = "chart_id"),
+    inverseJoinColumns = @JoinColumn(name = "movie_id"))
+    public List<MovieEntity> getMovies()
     {
 
         return movies;
 
     }
 
-    public void setMovies(List<ChartMovieEntity> movies) {
+    public void setMovies(List<MovieEntity> movies) {
         this.movies = movies;
     }
 
-    public void addMovie(ChartMovieEntity chartMovieEntity)
+    public void addMovie(MovieEntity movie)
     {
-        this.movies.add(chartMovieEntity);
+        this.movies.add(movie);
     }
 
     @Override

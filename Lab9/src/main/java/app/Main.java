@@ -1,10 +1,15 @@
 package app;
 
+import model.ChartEntity;
 import model.MovieEntity;
+import repository.ChartRepository;
 import repository.MovieRepository;
 
 import javax.persistence.*;
 import javax.persistence.EntityManager;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Main {
@@ -12,25 +17,22 @@ public class Main {
     {
         EntityManagerFactory emf= MyEntityManagerFactory.getEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
-        MovieEntity movie;
         MovieRepository movieRepository = new MovieRepository(em);
+        ChartRepository chartRepository = new ChartRepository(em);
+        ChartEntity chartEntity = new ChartEntity();
 
-        //em.getTransaction().begin();
-        movie = new MovieEntity();
-        movie.setTitle("The Journal");
-        movie.setDuration(110);
-        movie.setScore((float)(9.8));
 
-        /*em.persist(movie);
-        em.getTransaction().commit();
+        chartEntity.setName("My Chart2");
+        chartEntity.setCreationDate(LocalDate.now());
+        chartEntity.addMovie(movieRepository.findById(12));
+        chartEntity.addMovie(movieRepository.findById(89));
+
+        chartRepository.create(chartEntity);
+
+        System.out.println(chartRepository.findByName("My Chart2"));
 
 
         em.close();
-        emf.close();*/
-
-        movieRepository.create(movie);
-        System.out.println(movieRepository.findByName("The Journal"));
-        System.out.println(movieRepository.findById(1));
-
+        emf.close();
     }
 }

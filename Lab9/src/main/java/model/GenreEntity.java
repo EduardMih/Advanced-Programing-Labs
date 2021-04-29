@@ -46,4 +46,15 @@ public class GenreEntity {
     public int hashCode() {
         return Objects.hash(id, name);
     }
+
+    @Override
+    public String toString()
+    {
+
+        return "GenreEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+
+    }
 }

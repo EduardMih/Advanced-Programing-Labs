@@ -3,6 +3,7 @@ package model;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Objects;
+import java.util.List;
 
 @Entity
 @Table(name = "movies", schema = "public", catalog = "cinema")
@@ -15,6 +16,9 @@ public class MovieEntity {
     private Date releaseDate;
     private Integer duration;
     private Float score;
+    private List<GenreEntity> genres;
+    private List<PersonEntity> actors;
+    private List<PersonEntity> directors;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,6 +74,51 @@ public class MovieEntity {
         this.score = score;
     }
 
+    @ManyToMany
+    @JoinTable(name = "movie_genre",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    public List<GenreEntity> getGenres()
+    {
+
+        return genres;
+
+    }
+
+    public void setGenres(List<GenreEntity> genres) {
+        this.genres = genres;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "movie_actors",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
+    public List<PersonEntity> getActors()
+    {
+
+        return actors;
+
+    }
+
+    public void setActors(List<PersonEntity> actors) {
+        this.actors = actors;
+    }
+
+    @ManyToMany
+    @JoinTable(name = "movie_directors",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "person_id"))
+    public List<PersonEntity> getDirectors()
+    {
+
+        return directors;
+
+    }
+
+    public void setDirectors(List<PersonEntity> directors) {
+        this.directors = directors;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,12 +136,15 @@ public class MovieEntity {
     public String toString()
     {
 
-        return "MoviesEntity{" +
+        return "MovieEntity{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", releaseDate=" + releaseDate +
                 ", duration=" + duration +
                 ", score=" + score +
+                ", genres=" + genres +
+                ", actors=" + actors +
+                ", directors=" + directors +
                 '}';
 
     }

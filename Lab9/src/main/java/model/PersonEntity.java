@@ -65,4 +65,17 @@ public class PersonEntity {
     public int hashCode() {
         return Objects.hash(id, name, birthName, spousesString);
     }
+
+    @Override
+    public String toString()
+    {
+
+        return "PersonEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", birthName='" + birthName + '\'' +
+                ", spousesString='" + spousesString + '\'' +
+                '}';
+
+    }
 }

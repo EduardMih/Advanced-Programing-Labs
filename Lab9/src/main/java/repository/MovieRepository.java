@@ -4,10 +4,11 @@ import model.MovieEntity;
 
 import javax.persistence.EntityManager;
 
-public class MovieRepository {
+public class MovieRepository{
     private EntityManager em;
 
-    public MovieRepository(EntityManager em) {
+    public MovieRepository(EntityManager em)
+    {
         this.em = em;
     }
 
@@ -45,8 +46,5 @@ public class MovieRepository {
         em.persist(movie);
         em.getTransaction().commit();
     }
-
-
-
 
 }

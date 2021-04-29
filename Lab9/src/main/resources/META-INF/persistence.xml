@@ -6,9 +6,6 @@
     <persistence-unit name="default" transaction-type="RESOURCE_LOCAL">
 
         <class>model.GenreEntity</class>
-        <class>model.MovieActorEntity</class>
-        <class>model.MovieDirectorEntity</class>
-        <class>model.MovieGenreEntity</class>
         <class>model.MovieEntity</class>
         <class>model.PersonEntity</class>
         <properties>
