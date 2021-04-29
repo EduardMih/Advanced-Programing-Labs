@@ -56,3 +56,10 @@ Exercitiile Optional si Bonus - 22.04
 Lab9
 
 Exercitiul Compulsory - 22.04
+
+Exercitiul Optional - prima bulina - 29.04
+
+--------------------------------------------
+Lab10
+
+Exercitiul Compulsory - 29.04
