@@ -63,3 +63,4 @@ Exercitiul Optional - prima bulina - 29.04
 Lab10
 
 Exercitiul Compulsory - 29.04
+Exercitiul Optional - primele 2 buline - 13.05
