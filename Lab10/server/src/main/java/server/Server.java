@@ -1,6 +1,9 @@
 //Hamza Eduard-Mihail, 2A4
 package server;
 
+import data.Friendships;
+import data.Messages;
+import data.User;
 import serverutils.ClientThread;
 
 import java.io.IOException;
@@ -12,6 +15,9 @@ import java.util.List;
 public class Server {
     public static final int PORT = 8100;
     public static boolean running = true;
+    public static User users = new User();
+    public static Friendships friendships = new Friendships();
+    public static Messages messages = new Messages();
 
     public Server() throws IOException
     {

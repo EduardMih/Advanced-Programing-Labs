@@ -1,6 +1,8 @@
 //Hamza Eduard-Mihail, 2A4
 package serverutils;
 
+import commands.CommandExecutor;
+import commands.RegisterCommand;
 import server.Server;
 
 import java.io.BufferedReader;
@@ -11,6 +13,7 @@ import java.net.Socket;
 
 public class ClientThread extends Thread{
     private Socket socket = null;
+    public String username;
 
     public ClientThread(Socket socket) {
         this.socket = socket;
@@ -25,6 +28,7 @@ public class ClientThread extends Thread{
         {
 
             String request;
+            socket.setSoTimeout(120*1000); //timeout after 2 minutes
             while((request = in.readLine()) != null)
             {
                 if (request.equals("stop"))
@@ -38,7 +42,13 @@ public class ClientThread extends Thread{
 
                 else
 
-                    out.println("server.Server received request " + request);
+                    {
+                    System.out.println("Server[ " + username + "] received request " + request);
+
+                    CommandExecutor commandExecutor = new CommandExecutor(username, this, out);
+                    commandExecutor.execute(request);
+
+                }
             }
 
         }
@@ -46,5 +56,16 @@ public class ClientThread extends Thread{
         {
             System.out.println("Communication error" + e.getMessage());
         }
+    }
+
+    public String getUsername()
+    {
+
+        return username;
+
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
