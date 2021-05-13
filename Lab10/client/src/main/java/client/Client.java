@@ -6,14 +6,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Client {
     private static Scanner input = new Scanner(System.in);
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String serverAddress = "127.0.0.1";
         String command = "";
         int PORT = 8100;
@@ -29,7 +26,8 @@ public class Client {
                     break;
 
                 out.println(command);
-                System.out.println("[Client] received: " + in.readLine());
+                if("read".equals(command))
+                    System.out.println("[Client] received: " + in.readLine());
             }
 
         }
@@ -45,5 +43,4 @@ public class Client {
         return input.nextLine();
 
     }
-
 }
