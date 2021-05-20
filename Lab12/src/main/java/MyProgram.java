@@ -1,4 +1,4 @@
-/*import test.Test;
+import test.Test;
 
 public class MyProgram {
     @Test
@@ -33,4 +33,3 @@ public class MyProgram {
 
     }
 }
-*/
