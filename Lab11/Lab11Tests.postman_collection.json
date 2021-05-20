@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "26dec1bb-ed44-4f0f-be19-69eb38feccf3",
+		"name": "Lab11Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZHVhcmQifQ.yjIIWjFx1twzz17Y_q-vTxxVQwmewybntvCMHC_aQ7Y",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"eduard\",\r\n    \"pass\":\"myPass\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllPersons",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZHVhcmQifQ.yjIIWjFx1twzz17Y_q-vTxxVQwmewybntvCMHC_aQ7Y",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8090/persons",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddNewPerson",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Amanda\",\r\n    \"age\":\"20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/persons",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePersonName",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"newNAme\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/persons/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"persons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePerson",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/persons/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"persons",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFriends",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/relationships/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"relationships",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddRelationship",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"person1Id\":3,\r\n    \"person2Id\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8090/relationships",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllRelationships",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/relationships",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"relationships"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMostPopular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/popularity/most",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"popularity",
+						"most"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLeastPopular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8090/popularity/least",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"popularity",
+						"least"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SwaggerDoc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090//v1/api-docs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"",
+						"v1",
+						"api-docs"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlZHVhcmQifQ.yjIIWjFx1twzz17Y_q-vTxxVQwmewybntvCMHC_aQ7Y",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
