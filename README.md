@@ -74,3 +74,9 @@ Exercitiul Compulsory - 13.05
 Exercitiul Optional (primele 2 buline) - 20.05
 
 Exercitiul Bonus (Ultimele 2 buline - swagger si jwt) - 20.5
+
+------------------------------------------------
+
+Lab12
+
+Exercitiul Compulsory - 20.05
